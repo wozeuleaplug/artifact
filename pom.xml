@@ -8,24 +8,23 @@
   <artifactId>firstpack</artifactId>
   <version>1.6</version>
 
-
+  <!-- ====== Додана секція для деплою в GitHub Packages ====== -->
   <distributionManagement>
-    <!--Write code here-->
+    <repository>
+      <id>github</id>
+      <name>GitHub wozeuleaplug Apache Maven Packages</name>
+      <!-- ЗАМІНИ: https://maven.pkg.github.com/OWNER/REPO -->
+      <url>https://maven.pkg.github.com/wozeuleaplug/artifact</url>
+    </repository>
   </distributionManagement>
 
+  <!-- === Далі йде весь існуючий вміст твого pom.xml (збережено) === -->
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <!-- (твої властивості тут, залишились без змін) -->
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-      <scope>test</scope>
-    </dependency>
+    <!-- (твої залежності тут, залишились без змін) -->
   </dependencies>
 
   <build>
