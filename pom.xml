@@ -1,40 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.artifactory</groupId>
-  <artifactId>firstpack</artifactId>
-  <version>1.6</version>
+  <groupId>com.example</groupId>
+  <artifactId>backend</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
 
-  <!-- ====== Додана секція для деплою в GitHub Packages ====== -->
-  <distributionManagement>
-    <repository>
-      <id>github</id>
-      <name>GitHub wozeuleaplug Apache Maven Packages</name>
-      <!-- ЗАМІНИ: https://maven.pkg.github.com/OWNER/REPO -->
-      <url>https://maven.pkg.github.com/wozeuleaplug/artifact</url>
-    </repository>
-  </distributionManagement>
+  <name>backend</name>
 
-  <!-- === Далі йде весь існуючий вміст твого pom.xml (збережено) === -->
   <properties>
-    <!-- (твої властивості тут, залишились без змін) -->
+    <java.version>17</java.version>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
   </properties>
 
+  <!-- Репозиторій GitHub Packages -->
+  <repositories>
+    <repository>
+      <id>github</id>
+      <!-- ЗАМІНИ на свої OWNER/REPO -->
+      <url>https://maven.pkg.github.com/wozeuleaplug/artifact</url>
+    </repository>
+  </repositories>
+
   <dependencies>
-    <!-- (твої залежності тут, залишились без змін) -->
+    <!-- 1) Твоя бібліотека з GitHub Packages -->
+    <dependency>
+      <groupId>org.artifactory</groupId>
+      <artifactId>firstpack</artifactId>
+      <version>1.6</version>
+    </dependency>
+
+    <!-- 2) Типові бібліотеки (приклад - Spring Boot) -->
+    <!-- Якщо твій backend не Spring — заміни / видали наступні -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+      <version>2.7.10</version>
+    </dependency>
+
+    <!-- інші залежності твоєї аплікації тут -->
   </dependencies>
 
   <build>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <artifactId>maven-jar-plugin</artifactId>
-          <version>3.0.2</version>
-        </plugin>
-      </plugins>
-    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>2.7.10</version>
+      </plugin>
+    </plugins>
   </build>
 </project>
